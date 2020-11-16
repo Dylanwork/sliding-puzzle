@@ -1,0 +1,26 @@
+<div class="main-container">
+  <div class="puzzle-pieces">
+    <ng-container *ngFor="let row of puzzlePieceMatrix;index as rowIndex">
+      <ng-container *ngFor="let puzzlePiece of row; index as columnIndex">
+        <ng-container *ngIf="isBlankPiece({row: rowIndex,column: columnIndex})">
+          <div (dragenter)="movePuzzlePiece(pieceBeingDragged)" class="blank-puzzle-piece"></div>
+        </ng-container>
+        <ng-container *ngIf="!isBlankPiece({row: rowIndex,column: columnIndex})">
+          <div (click)="movePuzzlePiece({row: rowIndex,column: columnIndex})"
+               (dragstart)="dragStart(rowIndex,columnIndex)" class="normal-puzzle-piece" draggable="true">
+            <div class="puzzle-image">
+            <span class="puzzle-piece-number">{{puzzlePiece.pieceNumber}}
+            </span>
+              <img [alt]="puzzlePieceAltText" [src]="puzzlePiece.imageSrc" class="puzzle-image"/>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+  <div class="score-board">
+    <app-puzzle-board-scoreboard (restartHappened)="restartGame()"
+                                 [numberOfMoves]="numberOfMoves"
+                                 [puzzleState]="puzzleState"></app-puzzle-board-scoreboard>
+  </div>
+</div>

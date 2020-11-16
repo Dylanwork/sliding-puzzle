@@ -1,0 +1,63 @@
+.puzzle-pieces {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 10vw);
+  background-image: url("../../assets/img/digiOutSource.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-radius: 5px;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.score-board {
+  width: 300px;
+  height: 100%;
+  background-color: #1976d2;
+  color: azure;
+}
+
+.main-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.normal-puzzle-piece {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid whitesmoke;
+  font-size: 30px;
+  text-align: center;
+  cursor: move;
+  user-select: none;
+}
+
+.blank-puzzle-piece {
+  background-color: rgba(240, 255, 255, 0.7);
+  border: 2px solid rgba(112, 111, 111, 0.8);
+  font-size: 30px;
+  text-align: center;
+}
+
+.puzzle-piece-number {
+  z-index: 3;
+  position: absolute;
+  color: azure;
+  font-family: 'Sofia', serif;
+  background-color: lightblue;
+  margin: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 20px;
+  border-radius: 2px;
+}
+
+.puzzle-image {
+  height: 100%;
+  width: 100%;
+}
+
+:host {
+  height: 100%;
+  width: 100%;
+}
